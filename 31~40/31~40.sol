@@ -104,5 +104,25 @@ contract BASIC4_5 {
 }
 
 contract Q36 {
-    function a() {}
+    // high, neutral, low 상태를 구현하세요.
+    // a라는 변수의 값이 7이상이면 high, 4이상이면 neutral 그 이후면 low로
+    // 상태를 변경시켜주는 함수를 구현하세요.
+    enum state {
+        high,
+        neutral,
+        low
+    }
+
+    state public S;
+    function changeState(uint _a) public  {
+        if(_a >= 7) {
+            S = state.high;
+        }
+        else if (_a >= 4 && _a < 7) {
+            S = state.neutral;
+        }
+        else {
+            S = state.low;
+        }
+    }
 }
